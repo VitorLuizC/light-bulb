@@ -11,3 +11,13 @@ trim_trailing_whitespace = true
 [*.{js,json}]
 indent_size = 2
 indent_style = space
+
+# Pug files
+[*.pug]
+indent_size = 2
+indent_style = space
+
+# Stylus files
+[*.styl]
+indent_size = 2
+indent_style = space

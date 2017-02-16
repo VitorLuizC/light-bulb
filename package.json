@@ -4,7 +4,11 @@
   "description": "Save and manage your ideas.",
   "main": "app/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:script": "webpack ./app/script/index.js ./app/public/js/main.js",
+    "build:style": "stylus ./app/style/index.styl -o ./app/public/css/main.css",
+    "build": "npm run build:style && npm run build:script",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/VitorLuizC/light-bulb/issues"
   },
-  "homepage": "https://github.com/VitorLuizC/light-bulb#readme"
+  "homepage": "https://github.com/VitorLuizC/light-bulb#readme",
+  "dependencies": {
+    "express": "^4.14.1",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5",
+    "webpack": "^2.2.1"
+  }
 }
