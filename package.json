@@ -1,0 +1,22 @@
+{
+  "name": "light-bulb",
+  "version": "0.1.0",
+  "description": "Save and manage your ideas.",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorLuizC/light-bulb.git"
+  },
+  "keywords": [
+    "light-bulb"
+  ],
+  "author": "Vitor Luiz Cavalcanti <vitorluizc@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VitorLuizC/light-bulb/issues"
+  },
+  "homepage": "https://github.com/VitorLuizC/light-bulb#readme"
+}

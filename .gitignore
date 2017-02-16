@@ -1,0 +1,8 @@
+# Node.js modules
+node_modules
+
+# Log files
+debug.log
+
+# Visual Studio Code settings
+.vscode
