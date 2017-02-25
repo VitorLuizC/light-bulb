@@ -1,0 +1,9 @@
+mixin button(text, type)
+  - type = type || 'button'
+  - let buttonTypes = ['button', 'submit', 'reset']
+  - let isButton = buttonTypes.indexOf(type) > -1
+
+  if isButton
+    button.button(type=type)&attributes(attributes)!=text
+  else if type == 'link'
+    a.button&attributes(attributes)!=text

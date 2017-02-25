@@ -6,8 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:script": "webpack ./app/script/index.js ./app/public/js/main.js",
-    "build:style": "stylus ./app/style/index.styl -o ./app/public/css/main.css",
+    "build:style": "stylus ./app/view/index.styl -o ./app/public/css/main.css",
     "build": "npm run build:style && npm run build:script",
+    "watch:script": "webpack ./app/script/index.js ./app/public/js/main.js -w",
+    "watch:style": "stylus ./app/view/index.styl -o ./app/public/css/main.css -w",
+    "watch": "concurrently \"npm run watch:script\" \"npm run watch:style\"",
     "start": "node ."
   },
   "repository": {
@@ -28,6 +31,7 @@
     "pug": "^2.0.0-beta11"
   },
   "devDependencies": {
+    "concurrently": "^3.3.0",
     "stylus": "^0.54.5",
     "webpack": "^2.2.1"
   }

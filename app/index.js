@@ -14,7 +14,7 @@ app
 
 // Application main routes
 app
-  .use('/assets', express.static(public))
+  .use('/public', express.static(public))
   .use('/', router);
 
 const config = {

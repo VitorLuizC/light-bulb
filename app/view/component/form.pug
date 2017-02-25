@@ -1,0 +1,25 @@
+mixin form-container()
+  form.form-container&attributes(attributes)
+    if block
+      block
+
+mixin form-group(legend)
+  fieldset.form-group&attributes(attributes)
+    if legend
+      legend!=legend
+    if block
+      block
+
+mixin form-field(name, type, label)
+  - type = type || 'text'
+  - let inputTypes = ['text', 'email', 'password']
+  - let isInput = inputTypes.indexOf(type) > -1
+
+  .form-field
+    if label
+      label.label(for=name)!=label
+
+    if isInput
+      input.field(type=type)&attributes(attributes)
+    else
+      #{type}.field&attributes(attributes)

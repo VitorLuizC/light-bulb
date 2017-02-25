@@ -3,6 +3,7 @@ node_modules
 
 # Log files
 debug.log
+npm-debug.log
 
 # Visual Studio Code settings
 .vscode
