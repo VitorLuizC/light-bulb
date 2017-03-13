@@ -4,6 +4,11 @@ node_modules
 # Log files
 debug.log
 npm-debug.log
+npm-debug.log.*
+*.log
 
 # Visual Studio Code settings
 .vscode
+
+# Distribution files
+dist

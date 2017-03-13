@@ -1,23 +1,9 @@
 root = true
 
-# Common files
 [*]
 charset = utf-8
 end_of_line = crlf
+indent_size = 2
+indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
-
-# JavaScript & JSON files
-[*.{js,json}]
-indent_size = 2
-indent_style = space
-
-# Pug files
-[*.pug]
-indent_size = 2
-indent_style = space
-
-# Stylus files
-[*.styl]
-indent_size = 2
-indent_style = space
