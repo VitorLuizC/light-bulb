@@ -1,13 +1,12 @@
 <template lang="pug">
-  .view
-    view-header
+  view-container
     p Olá
 </template>
 
 <script>
-  import ViewHeader from '../component/ViewHeader.vue'
+  import ViewContainer from './ViewContainer.vue'
 
   export default {
-    components: { ViewHeader }
+    components: { ViewContainer }
   }
 </script>

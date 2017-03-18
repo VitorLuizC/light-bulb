@@ -1,9 +1,19 @@
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { optimize, DefinePlugin, LoaderOptionsPlugin } = require('webpack')
 
 const vue = {
   test: /\.vue$/,
   exclude: /node_modules/,
-  loader: 'vue-loader'
+  use: {
+    loader: 'vue-loader',
+    options: {
+      stylus: ExtractTextPlugin.extract({
+        use: 'css-loader',
+        fallback: 'vue-style-loader'
+      })
+    }
+  }
 }
 
 const babel = {
@@ -12,7 +22,14 @@ const babel = {
   use: {
     loader: 'babel-loader',
     options: {
-      presets: [['es2015', { modules: false }]]
+      presets: [
+        [
+          'es2015',
+          {
+            modules: false
+          }
+        ]
+      ]
     }
   }
 }
@@ -37,7 +54,7 @@ const font = {
   use: [
     {
       loader: 'file-loader',
-      query: {
+      options: {
         name: '/font/[name].[ext]?[hash]'
       }
     }
@@ -48,8 +65,8 @@ const config = {
   entry: './src/index.js',
   output: {
     filename: 'js/[name].js',
-    path: './dist',
-    publicPath: './dist'
+    path: path.join(__dirname, './dist'),
+    publicPath: path.join(__dirname, './dist')
   },
   module: {
     rules: [ vue, babel, image, font ]
@@ -59,6 +76,13 @@ const config = {
       vue$: 'vue/dist/vue.common.js'
     }
   },
+  devServer: {
+    compress: true,
+    port: 9000
+  },
+  plugins: [
+    new ExtractTextPlugin('style.css')
+  ],
   performance: { hints: false },
   devtool: '#source-map'
 }

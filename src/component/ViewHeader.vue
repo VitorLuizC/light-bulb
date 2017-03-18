@@ -1,12 +1,13 @@
 <template lang="pug">
   header.view-header
+    p Header
 </template>
 
 <script>
   export default {}
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   .view-header
     position: absolute
     top: 0

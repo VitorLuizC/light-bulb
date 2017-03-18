@@ -4,7 +4,7 @@
   "description": "Save and manage your ideas.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"webpack-dev-server --hot\" \"npm run watch\"",
     "build": "webpack -d --env development",
     "watch": "webpack -d --env development -w",
     "deploy": "webpack -p --env production"
@@ -26,15 +26,19 @@
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
+    "concurrently": "^3.4.0",
     "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "pug": "^2.0.0-beta11",
     "pug-loader": "^2.3.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue-loader": "^11.1.4",
+    "vue-style-loader": "^2.0.4",
     "vue-template-compiler": "^2.2.4",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "firebase": "^3.7.2",
