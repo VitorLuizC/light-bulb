@@ -1,16 +1,21 @@
-const { optimize, DefinePlugin, LoaderOptionsPlugin } = require('webpack');
+const { optimize, DefinePlugin, LoaderOptionsPlugin } = require('webpack')
 
 const vue = {
   test: /\.vue$/,
   exclude: /node_modules/,
   loader: 'vue-loader'
-};
+}
 
 const babel = {
   test: /\.js$/,
   exclude: /node_modules/,
-  use: ['babel-loader']
-};
+  use: {
+    loader: 'babel-loader',
+    options: {
+      presets: [['es2015', { modules: false }]]
+    }
+  }
+}
 
 const image = {
   test: /\.(png|jpe?g|svg)$/,
@@ -24,7 +29,7 @@ const image = {
     },
     'image-webpack-loader'
   ]
-};
+}
 
 const font = {
   test: /\.woff2?$/,
@@ -37,7 +42,7 @@ const font = {
       }
     }
   ]
-};
+}
 
 const config = {
   entry: './src/index.js',
@@ -49,9 +54,14 @@ const config = {
   module: {
     rules: [ vue, babel, image, font ]
   },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.common.js'
+    }
+  },
   performance: { hints: false },
-  devtool: 'eval-source-map'
-};
+  devtool: '#source-map'
+}
 
 /**
  * @param {string} env
@@ -59,8 +69,7 @@ const config = {
  */
 module.exports = env => {
   if (env === 'production') {
-    config.devtool = '#source-map';
-
+    config.devtool = false
     config.plugins = (config.plugins || []).concat([
       new DefinePlugin({
         'process.env': {
@@ -68,7 +77,7 @@ module.exports = env => {
         }
       }),
       new optimize.UglifyJsPlugin({
-        sourceMap: true,
+        sourceMap: false,
         compress: {
           warnings: false
         }
@@ -76,8 +85,8 @@ module.exports = env => {
       new LoaderOptionsPlugin({
         minimize: true
       })
-    ]);
+    ])
   }
 
-  return config;
-};
+  return config
+}
