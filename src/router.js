@@ -1,13 +1,16 @@
-import Router from 'vue-router';
-import home from './component/page-home.vue';
+import Vue from 'vue'
+import Router from 'vue-router'
+import { Login } from './view/index.js'
+
+Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
-      path: '/',
-      component: home
+      path: '/login',
+      component: Login
     }
   ]
-});
+})
 
-export default router;
+export default router
