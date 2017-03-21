@@ -4,7 +4,7 @@
 </template>
 
 <script>
-  import ViewContainer from './ViewContainer.vue'
+  import ViewContainer from '../component/ViewContainer.vue'
 
   export default {
     components: { ViewContainer }
