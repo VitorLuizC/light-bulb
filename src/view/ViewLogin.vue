@@ -1,12 +1,13 @@
 <template lang="pug">
   view-container
-    p Olá
+    form-login
 </template>
 
 <script>
   import ViewContainer from '../component/ViewContainer.vue'
+  import FormLogin from '../component/FormLogin.vue'
 
   export default {
-    components: { ViewContainer }
+    components: { ViewContainer, FormLogin }
   }
 </script>
