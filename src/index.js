@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import router from './router.js'
+import router from './lib/router.js'
 import Main from './component/Main.vue'
 
 new Vue({
