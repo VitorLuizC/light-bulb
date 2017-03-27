@@ -1,16 +1,18 @@
 <template lang="pug">
   form.form-login
-    input(type="email", v-model="email")
-    input(type="password", v-model="password")
+    form-field(type="email", label="E-Mail", :value="email", @update="updateEmail")
+    form-field(type="password", label="Password", :value="password", @update="updatePassword")
     button(@click.prevent="signIn") Sign In
 </template>
 
 <script>
-  import application from '../lib/application.js';
+  import application from '../lib/application.js'
+  import FormField from './FormField.vue'
 
-  const authentication = application.auth();
+  const authentication = application.auth()
 
   export default {
+    components: { FormField },
     data() {
       return {
         email: '',
@@ -22,10 +24,14 @@
         authentication
           .signInWithEmailAndPassword(this.email, this.password)
           .then(user => console.log(user))
-          .catch(error => console.log(error));
+          .catch(error => console.log(error))
+      },
+      updateEmail(email) {
+        this.email = email
+      },
+      updatePassword(password) {
+        this.password = password
       }
     }
   }
 </script>
-
-<style lang="stylus"></style>
