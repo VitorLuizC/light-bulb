@@ -1,6 +1,9 @@
 const path = require('path')
+const webpack = require('webpack')
+const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const { optimize, DefinePlugin, LoaderOptionsPlugin } = require('webpack')
+const { DefinePlugin, LoaderOptionsPlugin } = webpack
+const { UglifyJsPlugin } = webpack.optimize;
 
 const vue = {
   test: /\.vue$/,
@@ -8,10 +11,12 @@ const vue = {
   use: {
     loader: 'vue-loader',
     options: {
-      stylus: ExtractTextPlugin.extract({
-        use: 'css-loader',
-        fallback: 'vue-style-loader'
-      })
+      loaders: {
+        stylus: ExtractTextPlugin.extract({
+          use: ['css-loader', 'stylus-loader'],
+          fallback: 'vue-style-loader'
+        })
+      }
     }
   }
 }
@@ -23,20 +28,32 @@ const babel = {
     loader: 'babel-loader',
     options: {
       presets: [
-        [
-          'es2015',
-          {
-            modules: false
-          }
-        ]
+        ['es2015', { modules: false }]
       ]
     }
   }
 }
 
+const pug = {
+  test: /\.pug$/,
+  use: {
+    loader: 'pug-loader',
+    options: {
+      pretty: true
+    }
+  }
+}
+
+const styl = {
+  test: /\.styl$/,
+  use: ExtractTextPlugin.extract({
+    use: ['css-loader', 'stylus-loader'],
+    fallback: 'vue-style-loader'
+  })
+}
+
 const image = {
   test: /\.(png|jpe?g|svg)$/,
-  exclude: /node_modules/,
   use: [
     {
       loader: 'file-loader',
@@ -44,7 +61,10 @@ const image = {
         name: '/img/[name].[ext]?[hash]'
       }
     },
-    'image-webpack-loader'
+    {
+      loader: 'image-webpack-loader',
+      options: {}
+    }
   ]
 }
 
@@ -65,11 +85,10 @@ const config = {
   entry: './src/index.js',
   output: {
     filename: 'js/[name].js',
-    path: path.join(__dirname, './dist'),
-    publicPath: path.join(__dirname, './dist')
+    path: path.join(__dirname, './dist')
   },
   module: {
-    rules: [ vue, babel, image, font ]
+    rules: [ vue, babel, pug, image, font ]
   },
   resolve: {
     alias: {
@@ -81,7 +100,11 @@ const config = {
     port: 9000
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('./css/style.css'),
+    new HtmlPlugin({
+      template: 'src/view.pug',
+      filename: 'index.html'
+    })
   ],
   performance: { hints: false },
   devtool: '#source-map'
@@ -100,14 +123,14 @@ module.exports = env => {
           NODE_ENV: '"production"'
         }
       }),
-      new optimize.UglifyJsPlugin({
+      new LoaderOptionsPlugin({
+        minimize: true
+      }),
+      new UglifyJsPlugin({
         sourceMap: false,
         compress: {
           warnings: false
         }
-      }),
-      new LoaderOptionsPlugin({
-        minimize: true
       })
     ])
   }
