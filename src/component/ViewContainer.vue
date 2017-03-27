@@ -29,4 +29,5 @@
 <style lang="stylus">
   .view-container
     box-sizing: border-box
+    overflow: auto
 </style>

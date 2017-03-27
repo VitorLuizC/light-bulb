@@ -1,18 +1,24 @@
 <template lang="pug">
   header.view-header
-    p Header
+    header-logo
 </template>
 
 <script>
-  export default {}
+  import HeaderLogo from './HeaderLogo.vue'
+
+  export default {
+    components: { HeaderLogo }
+  }
 </script>
 
 <style lang="stylus">
+  @import '../style/config.styl'
+
   .view-header
     position: absolute
     top: 0
     left: 0
     width: 100%
-    height: 80px
-    box-shadow: 0 0 5px rgba(#000, .5)
+    height: $view-header.height
+    box-shadow: $view-header.shadow
 </style>
