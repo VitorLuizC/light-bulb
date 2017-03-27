@@ -4,7 +4,7 @@ import { ViewLogin } from '../view/index.js'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/login',
@@ -12,3 +12,17 @@ export default new Router({
     }
   ]
 })
+
+const isAuthenticated = false
+
+router.beforeEach((destiny, origin, next) => {
+  if (destiny.path === '/login' && isAuthenticated) {
+    next('/')
+  } else if (destiny.path !== '/login' && !isAuthenticated) {
+    next('/login')
+  } else {
+    next()
+  }
+})
+
+export default router
