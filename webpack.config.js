@@ -67,7 +67,7 @@ const font = {
     {
       loader: 'file-loader',
       options: {
-        name: '/font/[name].[ext]?[hash]'
+        name: '/font/[name].[ext]'
       }
     }
   ]
