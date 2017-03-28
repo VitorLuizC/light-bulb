@@ -1,5 +1,5 @@
 <template lang="pug">
-  a.header-logo(href="/")
+  router-link.header-logo(to="/")
     img.image(src="../asset/image/light-bulb.png", alt="Light Bulb", title="A Light-bulb emoji.")
     | Light Bulb
 </template>

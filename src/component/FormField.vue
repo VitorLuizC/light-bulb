@@ -23,6 +23,6 @@
 <style lang="stylus">
   .form-field
     & > .label
-    & > .input
+    & > .field
       display: block
 </style>
