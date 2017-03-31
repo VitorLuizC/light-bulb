@@ -1,15 +1,19 @@
 <template lang="pug">
   footer.view-footer
     p.copyright
-      a.link(href="https://vitorluizc.github.io/") Vitor Cavalcanti
-      |  &copy; {{ year }}
+      a.link(:href="copyright.link") {{ copyright.author }}
+      |  &copy; {{ copyright.year }}
 </template>
 
 <script>
   export default {
     data() {
       return {
-        year: new Date().getFullYear()
+        copyright: {
+          year: new Date().getFullYear(),
+          author: 'Vitor Cavalcanti',
+          link: 'https://vitorluizc.github.io/'
+        }
       }
     }
   }
