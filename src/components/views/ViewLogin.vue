@@ -1,6 +1,6 @@
 <template lang="pug">
-  view-container
-    form-login
+  ViewContainer
+    FormLogin
 </template>
 
 <script>

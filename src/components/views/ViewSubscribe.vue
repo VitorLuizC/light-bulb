@@ -1,6 +1,6 @@
 <template lang="pug">
-  view-container
-    form-subscribe
+  ViewContainer
+    FormSubscribe
 </template>
 
 <script>
