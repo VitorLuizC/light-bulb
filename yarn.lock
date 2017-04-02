@@ -361,6 +361,10 @@ babel-plugin-check-es2015-constants@^6.22.0:
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-syntax-object-rest-spread@^6.8.0:
+  version "6.13.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
+
 babel-plugin-transform-es2015-arrow-functions@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-arrow-functions/-/babel-plugin-transform-es2015-arrow-functions-6.22.0.tgz#452692cb711d5f79dc7f85e440ce41b9f244d221"
@@ -528,6 +532,13 @@ babel-plugin-transform-es2015-unicode-regex@^6.22.0:
     babel-helper-regex "^6.22.0"
     babel-runtime "^6.22.0"
     regexpu-core "^2.0.0"
+
+babel-plugin-transform-object-rest-spread@^6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.23.0.tgz#875d6bc9be761c58a2ae3feee5dc4895d8c7f921"
+  dependencies:
+    babel-plugin-syntax-object-rest-spread "^6.8.0"
+    babel-runtime "^6.22.0"
 
 babel-plugin-transform-regenerator@^6.22.0:
   version "6.22.0"
@@ -1278,9 +1289,9 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-loader@^0.27.3:
-  version "0.27.3"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.27.3.tgz#69ab6f47b69bfb1b5acee61bac2aab14302ff0dc"
+css-loader@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.0.tgz#417cfa9789f8cde59a30ccbf3e4da7a806889bad"
   dependencies:
     babel-code-frame "^6.11.0"
     css-selector-tokenizer "^0.7.0"
@@ -1903,9 +1914,9 @@ figures@^1.3.5:
     escape-string-regexp "^1.0.5"
     object-assign "^4.1.0"
 
-file-loader@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.10.1.tgz#815034119891fc6441fb5a64c11bc93c22ddd842"
+file-loader@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.11.1.tgz#6b328ee1234a729e4e47d36375dd6d35c0e1db84"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -1975,9 +1986,9 @@ find-versions@^1.0.0:
     meow "^3.5.0"
     semver-regex "^1.0.0"
 
-firebase@^3.7.3:
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.3.tgz#5f143638a84874095a7faf411589e059ac419ccc"
+firebase@^3.7.4:
+  version "3.7.4"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.4.tgz#629fd7f84f8ed74f1da815fd792bfa03cd5e2b5c"
   dependencies:
     dom-storage "2.0.2"
     faye-websocket "0.9.3"
@@ -5161,9 +5172,9 @@ vue-hot-reload-api@^2.0.11:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.0.11.tgz#bf26374fb73366ce03f799e65ef5dfd0e28a1568"
 
-vue-loader@^11.3.3:
-  version "11.3.3"
-  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-11.3.3.tgz#045d27afacf70c58889d46debe4adf6d67ec8cf3"
+vue-loader@^11.3.4:
+  version "11.3.4"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-11.3.4.tgz#65e10a44ce092d906e14bbc72981dec99eb090d2"
   dependencies:
     consolidate "^0.14.0"
     hash-sum "^1.0.2"
@@ -5178,11 +5189,11 @@ vue-loader@^11.3.3:
     vue-style-loader "^2.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
-vue-router@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.3.0.tgz#a25c8359e8ca989d22ce79f64322eb0ad0c8670f"
+vue-router@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.3.1.tgz#3135448cf57d4ca576906061a5a9d25fae0214d7"
 
-vue-style-loader@^2.0.0, vue-style-loader@^2.0.4:
+vue-style-loader@^2.0.0, vue-style-loader@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-2.0.5.tgz#f0efac992febe3f12e493e334edb13cd235a3d22"
   dependencies:
@@ -5203,6 +5214,10 @@ vue-template-es2015-compiler@^1.2.2:
 vue@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.2.6.tgz#451714b394dd6d4eae7b773c40c2034a59621aed"
+
+vuex@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-2.2.1.tgz#a42d0ce18cb0e0359258f84bfd76835ed468c185"
 
 ware@^1.2.0:
   version "1.3.0"
