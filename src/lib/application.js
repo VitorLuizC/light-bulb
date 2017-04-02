@@ -1,9 +1,17 @@
 import { initializeApp } from 'firebase'
 
-export default initializeApp({
+const application = initializeApp({
   apiKey: 'AIzaSyBQ67Rm__5rk48zj4Gh4_d49kf8h8Io4vM',
   authDomain: 'light-bulb-fd900.firebaseapp.com',
   databaseURL: 'https://light-bulb-fd900.firebaseio.com',
   storageBucket: 'light-bulb-fd900.appspot.com',
   messagingSenderId: '1033977406813'
 })
+
+const authentication = application.auth()
+const database = application.database()
+const storage = application.storage()
+
+database.goOnline()
+
+export { authentication, database, storage }

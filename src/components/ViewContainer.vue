@@ -7,9 +7,9 @@
 </template>
 
 <script>
-  import ViewContent from '../component/ViewContent.vue'
-  import ViewFooter from '../component/ViewFooter.vue'
-  import ViewHeader from '../component/ViewHeader.vue'
+  import ViewContent from './ViewContent.vue'
+  import ViewFooter from './ViewFooter.vue'
+  import ViewHeader from './ViewHeader.vue'
 
   export default {
     components: { ViewContent, ViewFooter, ViewHeader },

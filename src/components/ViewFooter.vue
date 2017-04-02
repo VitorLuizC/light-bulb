@@ -10,9 +10,9 @@
     data() {
       return {
         copyright: {
-          year: new Date().getFullYear(),
           author: 'Vitor Cavalcanti',
-          link: 'https://vitorluizc.github.io/'
+          link: 'https://vitorluizc.github.io/',
+          year: new Date().getFullYear()
         }
       }
     }

@@ -4,8 +4,8 @@
 </template>
 
 <script>
-  import ViewContainer from '../component/ViewContainer.vue'
-  import FormLogin from '../component/FormLogin.vue'
+  import ViewContainer from '../ViewContainer.vue'
+  import FormLogin from '../FormLogin.vue'
 
   export default {
     components: { ViewContainer, FormLogin }
