@@ -1,13 +1,19 @@
 <template lang="pug">
   header.view-header
     header-logo
+    button(@click="signOut") Sign Out
 </template>
 
 <script>
   import HeaderLogo from './HeaderLogo.vue'
 
   export default {
-    components: { HeaderLogo }
+    components: { HeaderLogo },
+    methods: {
+      signOut() {
+        this.$store.dispatch('signOut')
+      }
+    }
   }
 </script>
 

@@ -24,8 +24,12 @@
     },
     methods: {
       async signIn() {
-        await this.$store.dispatch('signIn', [ this.email, this.password ])
-        this.$router.push('/dashboard');
+        await this.$store.dispatch('signIn', {
+          email: this.email,
+          password: this.password
+        })
+
+        this.$router.push('/dashboard')
       }
     }
   }

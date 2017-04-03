@@ -24,13 +24,29 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    async signIn({ commit }, user) {
-      let firebaseUser = await authentication.signInWithEmailAndPassword(user.email, user.password)
-      commit('update-user', firebaseUser)
+    async signIn({ commit }, { email, password }) {
+      try {
+        commit('update-user', await authentication.signInWithEmailAndPassword(email, password))
+      } catch (err) {
+        console.log(err)
+      }
     },
-    async signUp({ commit }, user) {
-      let { email, password } = user
-      let wut = await authentication.createUserWithEmailAndPassword(email, password)
+    async signOut() {
+      try {
+        await authentication.signOut()
+        commit('update-user', null)
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async signUp({ commit }, { name, email, password }) {
+      try {
+        let user = await authentication.createUserWithEmailAndPassword(email, password)
+        await user.updateProfile({ displayName: name })
+        commit('update-user', user)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 })
