@@ -3,10 +3,13 @@ const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
 const { extractStyle, rules } = require('./webpack.rules.js')
 const { DefinePlugin, LoaderOptionsPlugin } = webpack
-const { UglifyJsPlugin } = webpack.optimize;
+const { UglifyJsPlugin, CommonsChunkPlugin } = webpack.optimize;
 
 const config = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    vendors: 'babel-polyfill'
+  },
   output: {
     filename: 'js/[name].js',
     path: path.join(__dirname, './dist')
@@ -43,6 +46,9 @@ module.exports = env => {
         compress: {
           warnings: false
         }
+      }),
+      new CommonsChunkPlugin({
+        name: 'vendors'
       })
     ])
   }
