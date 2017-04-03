@@ -2,9 +2,9 @@
   form.form-login(@submit.prevent="signIn")
     form-group(title="Login")
       form-field(label="E-Mail")
-        input(slot="field", type="email", @input="email = $event.target.value")
+        input(slot="field", type="email", v-model="email")
       form-field(label="Password")
-        input(slot="field", type="password", @input="password = $event.target.value")
+        input(slot="field", type="password", v-model="password")
       button(type="submit") Sign In
       router-link(to="/subscribe") Sign Up
 </template>
