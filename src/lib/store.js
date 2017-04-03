@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    user: authentication.currentUser || null,
+    user: null,
     ideas: [],
     tags: []
   },
@@ -19,15 +19,18 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    'add-user'(store, user) {
+    'update-user'(store, user) {
       store.user = user
     }
   },
   actions: {
-    async signIn({ commit }, email, password) {
-      let user = await authentication.signInWithEmailAndPassword(email, password)
-      commit('add-user', user)
-      console.log(user)
+    async signIn({ commit }, user) {
+      let firebaseUser = await authentication.signInWithEmailAndPassword(user.email, user.password)
+      commit('update-user', firebaseUser)
+    },
+    async signUp({ commit }, user) {
+      let { email, password } = user
+      let wut = await authentication.createUserWithEmailAndPassword(email, password)
     }
   }
 })

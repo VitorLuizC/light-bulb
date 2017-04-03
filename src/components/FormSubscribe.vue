@@ -22,11 +22,13 @@
       }
     },
     methods: {
-      signUp() {
-        authentication
-          .createUserWithEmailAndPassword(this.email, this.password)
-          .then(user => console.log(user))
-          .catch(error => console.error(error))
+      async signUp() {
+        let user = {
+          email: this.email,
+          password: this.password
+        }
+
+        await this.$store.commit('signUp', user)
       }
     }
   }

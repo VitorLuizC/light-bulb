@@ -1,9 +1,10 @@
 <template lang="pug">
-  ViewContainer
+  view-container
+    p Olá
 </template>
 
 <script>
-  import ViewContainer from '../ViewContainer'
+  import ViewContainer from '../ViewContainer.vue'
 
   export default {
     components: { ViewContainer }

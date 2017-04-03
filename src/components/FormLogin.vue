@@ -2,10 +2,11 @@
   form.form-login(@submit.prevent="signIn")
     form-group(title="Login")
       form-field(label="E-Mail")
-        input(slot="field" type="email", @input="email = $event.target.value")
+        input(slot="field", type="email", @input="email = $event.target.value")
       form-field(label="Password")
-        input(slot="field" type="password", @input="password = $event.target.value")
+        input(slot="field", type="password", @input="password = $event.target.value")
       button(type="submit") Sign In
+      router-link(to="/subscribe") Sign Up
 </template>
 
 <script>
@@ -22,11 +23,9 @@
       }
     },
     methods: {
-      signIn() {
-        authentication
-          .signInWithEmailAndPassword(this.email, this.password)
-          .then(user => console.log(user))
-          .catch(error => console.log(error))
+      async signIn() {
+        await this.$store.dispatch('signIn', [ this.email, this.password ])
+        this.$router.push('/dashboard');
       }
     }
   }
