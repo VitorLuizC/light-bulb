@@ -6,12 +6,15 @@
 
 <script>
   import HeaderLogo from './HeaderLogo.vue'
+  import * as auth from '../lib/authentication.js'
 
   export default {
     components: { HeaderLogo },
     methods: {
-      signOut() {
-        this.$store.dispatch('signOut')
+      async signOut() {
+        await auth.signOut()
+        this.$router.push('/login')
+        // TODO: Change redirect to "/home" after done it.
       }
     }
   }

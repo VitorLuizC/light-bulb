@@ -32,4 +32,17 @@ const router = new Router({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  let { user, profile } = store.getters
+  let permission = (to.meta.profiles.indexOf(profile) > -1)
+
+  if (user !== undefined && !permission) {
+    let isGuest = (profile === 'guest')
+    next(isGuest ? '/login' : '/dashboard')
+    return
+  }
+
+  next()
+})
+
 export default router

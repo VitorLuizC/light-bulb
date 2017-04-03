@@ -8,10 +8,4 @@ const application = initializeApp({
   messagingSenderId: '1033977406813'
 })
 
-const authentication = application.auth()
-const database = application.database()
-const storage = application.storage()
-
-database.goOnline()
-
-export { authentication, database, storage }
+export default application

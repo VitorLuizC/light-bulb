@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import { authentication } from '../lib/application.js'
+  import * as auth from '../lib/authentication.js'
   import FormGroup from './FormGroup.vue'
   import FormField from './FormField.vue'
 
@@ -24,7 +24,7 @@
     },
     methods: {
       async signIn() {
-        await this.$store.dispatch('signIn', {
+        await auth.signIn({
           email: this.email,
           password: this.password
         })

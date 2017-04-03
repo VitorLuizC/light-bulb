@@ -14,7 +14,7 @@
 <script>
   import FormField from './FormField.vue'
   import FormGroup from './FormGroup.vue'
-  import { authentication } from '../lib/application.js'
+  import * as auth from '../lib/authentication.js'
 
   export default {
     components: { FormGroup, FormField },
@@ -27,7 +27,7 @@
     },
     methods: {
       async signUp() {
-        await this.$store.dispatch('signUp', {
+        await auth.signUp({
           name: this.name,
           email: this.email,
           password: this.password

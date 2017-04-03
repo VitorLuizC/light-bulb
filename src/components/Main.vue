@@ -1,31 +1,30 @@
 <template lang="pug">
-  router-view(v-if="user !== null")
+  router-view(v-if="user !== undefined")
 </template>
 
-<style lang="stylus">
-  @import '../style/base.styl'
-</style>
-
 <script>
-  import { authentication } from '../lib/application.js'
+  import { mapGetters } from 'vuex'
+  import { authentication } from '../lib/authentication.js'
 
   export default {
     computed: {
-      user() {
-        return this.$store.getters.user
-      }
+      ...mapGetters(['user', 'profile'])
     },
     created() {
       authentication.onAuthStateChanged(async user => {
-        await this.$store.commit('update-user', user || false)
+        await this.$store.commit('update-user', user || null)
 
-        let profile = this.$store.getters.userProfile
-        let permission = (this.$route.meta.profiles.indexOf(profile) > -1)
+        let permission = (this.$route.meta.profiles.indexOf(this.profile) > -1)
 
-        if (!permission) {        // Send back to Login if is a guest or to
-          this.$router.replace((profile === 'guest') ? '/login' : '/dashboard') // Home if is an user.
+        if (!permission) {
+          let isGuest = (this.profile === 'guest')
+          this.$router.replace(isGuest ? '/login' : '/dashboard')
         }
       })
     }
   }
 </script>
+
+<style lang="stylus">
+  @import '../style/base.styl'
+</style>
