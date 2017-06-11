@@ -4,10 +4,10 @@
   "description": "Save and manage your ideas.",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --open --quiet --content-base ./dist --client-log-level warning ",
-    "debug": "webpack -d --env development --display-error-details",
-    "watch": "webpack -w -d --env development --hide-modules",
-    "deploy": "webpack -p --env production --hide-modules"
+    "dev": "webpack-dev-server --hot --open --quiet --config build",
+    "debug": "webpack --env development --config build --display-error-details",
+    "watch": "webpack --env development --config build --hide-modules",
+    "build": "webpack --env production  --config build --hide-modules"
   },
   "repository": {
     "type": "git",
@@ -39,15 +39,15 @@
     "pug-loader": "github:pugjs/pug-loader",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "vue-loader": "^11.3.4",
-    "vue-style-loader": "^2.0.5",
+    "vue-loader": "^12.2.1",
+    "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.2.6",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "firebase": "^3.7.4",
+    "firebase": "^4.1.2",
     "vue": "^2.2.6",
     "vue-router": "^2.3.1",
     "vuex": "^2.2.1"
