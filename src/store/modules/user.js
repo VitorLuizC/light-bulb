@@ -28,7 +28,7 @@ export const actions = {
 
     }
   },
-  signOut({ commit, dispatch }) {
+  async signOut({ commit, dispatch }) {
     try {
       await authentication.signOut()
       commit(USER_UPDATE, getDefaultUser())

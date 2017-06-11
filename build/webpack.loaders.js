@@ -53,10 +53,11 @@ function getLoaders(env) {
     },
     {
       test: /\.pug$/,
-      use: env === 'production' ? 'pug-loader' : {
+      use: {
         loader: 'pug-loader',
         options: {
-          pretty: true
+          pretty: env === 'development',
+          doctype: 'html'
         }
       }
     },
