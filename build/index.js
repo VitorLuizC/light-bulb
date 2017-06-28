@@ -33,6 +33,9 @@ function getConfiguration(env) {
       filename: 'js/[name].js',
       path: path.resolve(__dirname, '../dist')
     },
+    resolve: {
+      extensions: ['.js', '.vue']
+    },
     module: {
       rules: getLoaders(env)
     },
