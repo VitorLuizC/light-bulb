@@ -1,7 +1,4 @@
-const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const { DefinePlugin, optimize } = require('webpack')
-const { UglifyJsPlugin, CommonsChunkPlugin } = optimize
 
 /**
  * Environment.
