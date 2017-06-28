@@ -23,6 +23,7 @@ function getLoaders(env) {
   const vueLoadersOptions = {
     loaders: {
       stylus: ExtractTextPlugin.extract({
+        publicPath: '../',
         use: [cssLoader, 'stylus-loader'],
         fallback: 'vue-style-loader'
       })
@@ -78,8 +79,9 @@ function getLoaders(env) {
           options: {
             name: 'img/[name].[ext]'
           }
-        },
-        'image-webpack-loader'
+        }
+        // , https://github.com/tcoopman/image-webpack-loader/issues/98
+        // 'image-webpack-loader'
       ]
     }
   ]
