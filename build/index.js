@@ -40,9 +40,9 @@ function getConfiguration(env) {
       rules: getLoaders(env)
     },
     plugins: getPlugins(env),
-    devtool: env === 'production' ? 'source-map' : false,
+    devtool: env === 'development' ? 'source-map' : false,
     performance: {
-      hints: env === 'production' ? false : 'warning'
+      hints: env !== 'development' ? true : false
     }
   }
 

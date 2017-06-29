@@ -8,10 +8,10 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 # Source editor's seetings
-[*.{js,vue,styl,pug,json}]
+[*.{js,vue,styl,html,json}]
 indent_size = 2
 indent_style = space
 
-# Pug settings
-[*.pug]
+# HTML settings
+[*.html]
 trim_trailing_whitespace = false

@@ -1,3 +1,5 @@
+const rucksack = require('rucksack-css')
+const poststylus = require('poststylus')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 /**
@@ -11,23 +13,58 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
  * @returns {Array.<webpack.Rule>}
  */
 function getLoaders(env) {
-  const cssLoader = {
-    loader: 'css-loader',
-    options: {
-      minimize: env === 'development' ? false : {
-        autoprefixer: false
+  const styleLoaders = [
+    {
+      loader: 'css-loader',
+      options: {
+        minimize: env === 'development' ? false : {
+          autoprefixer: false
+        }
+      }
+    },
+    {
+      loader: 'stylus-loader',
+      options: {
+        'include css': true,
+        define: { env },
+        use: poststylus(
+          rucksack({ autoprefixer: true })
+        )
       }
     }
-  }
+  ]
 
   const vueLoadersOptions = {
     loaders: {
       stylus: ExtractTextPlugin.extract({
         publicPath: '../',
-        use: [cssLoader, 'stylus-loader'],
+        use: styleLoaders,
         fallback: 'vue-style-loader'
       })
     }
+  }
+
+  const imageLoaders = [
+    {
+      loader: 'file-loader',
+      options: {
+        name: 'img/[name].[ext]'
+      }
+    }
+  ]
+
+  if (env !== 'development') {
+    imageLoaders.push(
+      {
+        loader: 'image-webpack-loader',
+        options: {
+          verbose: true,
+          progressive: true,
+          optimizationLevel: 7,
+          interlaced: false,
+        }
+      }
+    )
   }
 
   /**
@@ -50,16 +87,6 @@ function getLoaders(env) {
       }
     },
     {
-      test: /\.pug$/,
-      use: {
-        loader: 'pug-loader',
-        options: {
-          pretty: env === 'development',
-          doctype: 'html'
-        }
-      }
-    },
-    {
       test: /\.woff2?$/,
       exclude: /node_modules/,
       use: [
@@ -73,16 +100,7 @@ function getLoaders(env) {
     },
     {
       test: /\.(png|jpe?g|svg)$/,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            name: 'img/[name].[ext]'
-          }
-        }
-        // , https://github.com/tcoopman/image-webpack-loader/issues/98
-        // 'image-webpack-loader'
-      ]
+      use: imageLoaders
     }
   ]
 
