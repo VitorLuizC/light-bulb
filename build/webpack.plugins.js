@@ -28,7 +28,7 @@ function getPlugins(env) {
     })
   ]
 
-  if (env !== 'production')
+  if (env !== 'development')
     plugins.push(
       new DefinePlugin({
         'process.env': {
@@ -38,12 +38,7 @@ function getPlugins(env) {
       new CommonsChunkPlugin({
         name: 'vendors'
       }),
-      new UglifyJsPlugin({
-        sourceMap: false,
-        compress: {
-          warnings: false
-        }
-      })
+      new UglifyJsPlugin()
     )
 
   return plugins

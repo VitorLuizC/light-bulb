@@ -42,7 +42,7 @@ function getConfiguration(env) {
     plugins: getPlugins(env),
     devtool: env === 'development' ? 'source-map' : false,
     performance: {
-      hints: env !== 'development' ? true : false
+      hints: env !== 'development' ? 'warning' : false
     }
   }
 
