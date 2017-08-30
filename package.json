@@ -2,12 +2,10 @@
   "name": "light-bulb",
   "version": "0.1.0",
   "description": "Save and manage your ideas.",
-  "main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config build --hot --open",
-    "debug": "webpack --env development --config build --display-error-details",
-    "watch": "webpack --env development --config build --hide-modules",
-    "build": "webpack --env production  --config build --hide-modules"
+    "dev": "poi ./src",
+    "build": "poi build ./src"
   },
   "repository": {
     "type": "git",
@@ -23,32 +21,14 @@
   },
   "homepage": "https://github.com/VitorLuizC/light-bulb#readme",
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-latest": "^6.24.1",
-    "concurrently": "^3.5.0",
-    "css-loader": "^0.28.4",
-    "eslint-plugin-html": "^3.0.0",
-    "extract-text-webpack-plugin": "^2.1.2",
-    "file-loader": "^0.11.2",
-    "html-webpack-plugin": "^2.29.0",
-    "image-webpack-loader": "^3.3.1",
-    "poststylus": "^0.2.3",
-    "rucksack-css": "^0.9.1",
+    "poi": "^9.3.3",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
-    "vue-loader": "^12.2.1",
-    "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.3.4",
-    "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.5.0"
+    "stylus-loader": "^3.0.1"
   },
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
-    "firebase": "^4.1.3",
-    "vue": "^2.3.4",
-    "vue-router": "^2.6.0",
-    "vuex": "^2.3.1"
+    "firebase": "^4.3.0",
+    "vue": "^2.4.2",
+    "vue-router": "^2.7.0",
+    "vuex": "^2.4.0"
   }
 }
