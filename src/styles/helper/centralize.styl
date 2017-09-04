@@ -1,17 +1,16 @@
-/**
- * Centralize
- * Centralize component verical, horizontal or both.
- */
+/// Centralize
+/// --------------------------------------------------------
+/// Centralize component verical, horizontal or both.
 
-// TODO: Add vertex styles to all types
-
-centralize(type = silly, vertex = both)
-  if (type == silly)
-    display: block
+centralize(type = block, vertex = both)
+  if (type == block || type == inline-block)
+    display: type unless @display
     margin-right: auto
     margin-left: auto
-  else if (type == absolute)
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
+  if (type == absolute || type == fixed)
+    position: type unless @position
+    top: 50% unless (vertex == vertical || vertex == both)
+    left: 50% unless (vertex == horizontal || vertex == both)
+    transform: (vertex == both)       ? translateY(-50%) translateX(-50%) :
+               (vertex == vertical)   ? translateY(-50%) :
+               (vertex == horizontal) ? translateX(-50%) : @transform
