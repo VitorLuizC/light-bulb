@@ -6,6 +6,6 @@ import router from './router'
 new Vue({
   store,
   router,
-  el: '#application',
+  el: '#app',
   render: createElement => createElement(App)
 })
